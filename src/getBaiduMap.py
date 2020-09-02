@@ -28,7 +28,7 @@ class BaiduMap():
 
 			if 'weather' in jsonData: #存在天气预报的情况下
 				weatherData = json.loads(jsonData['weather'])
-				wx.CallAfter(pub.sendMessage, "updateText", content=weatherData['OriginQuery']+" PM2.5:"+weatherData['pm25']+weatherData['weather0']+"["+weatherData['temp0']+"]["+weatherData['wind0']+"]")
+				wx.CallAfter(pub.sendMessage, "updateText", content='''weatherData['OriginQuery']'''+" PM2.5:"+weatherData['pm25']+weatherData['weather0']+"["+weatherData['temp0']+"]["+weatherData['wind0']+"]")
 			if 'cur_area_id' in jsonData:
 				wx.CallAfter(pub.sendMessage, "updateText", content="城市id:" + str(jsonData['cur_area_id'])+",小兵已待命!")
 				return jsonData['cur_area_id']
